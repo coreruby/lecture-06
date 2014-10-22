@@ -64,3 +64,32 @@ section
 section
   h2 Polymorphism
   p A polymorphic type is a type whose operations can also be applied to values of some other type, or types.
+
+section
+  pre: code.ruby
+    '
+      class Vector3D
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          [@x, @y, @z].map { |n| n ** 2 }.reduce(:+) ** 0.5
+        end
+      end
+
+section.center
+  img.inline src="img/troll.png"
+
+section
+  pre: code.ruby
+    '
+      class Vector3D
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+      end

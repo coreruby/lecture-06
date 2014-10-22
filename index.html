@@ -161,6 +161,252 @@ end </code></pre>
     Stefan Kanev
   </p>
 </section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Opened by the keyword class
+  </p>
+  <pre><code class="ruby">class Vector3D
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+end </code></pre>
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Can define methods
+  </p>
+  <pre><code class="ruby">class Vector3D
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+end </code></pre>
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Can instruct objects to store instance variables
+  </p>
+  <pre><code class="ruby">class Vector3D
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+end </code></pre>
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Call #initialize during creation
+  </p>
+  <pre><code class="ruby">class Vector3D
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+end </code></pre>
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Inherit from Object by default
+  </p>
+  <pre><code class="ruby">class Vector3D
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+end </code></pre>
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Inherit from Object by default
+  </p>
+  <pre><code class="ruby">class Vector3D < Object
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+end </code></pre>
+</section>
+<section class="center" data-background="#000">
+  <p class="white">
+    Everything in Ruby is an object
+  </p>
+</section>
+<section class="center">
+  <pre><code class="ruby">>> Object.is_a? Object
+=> true </code></pre>
+</section>
+<section class="center">
+  <img class="inline" src="img/troll.png" />
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    There is no multiple inheritance
+  </p>
+  <pre><code class="ruby">class Vector3D < Object
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+end </code></pre>
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Can override operators
+  </p>
+  <pre><code class="ruby">class Vector3D < Object
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+
+  def +(other)
+    if other.is_a? Numeric
+      Vector.new(@x + other, @y, + other, @z + other)
+    end
+  end
+end </code></pre>
+</section>
+<section data-background="#000">
+  <pre class="white">Method  Operator
+Y       [ ] [ ]=
+Y       **
+Y       ! ~
+Y       * / %
+Y       + -
+Y       >> <<
+Y       &
+Y       ^ |
+Y       <= < > >=
+Y       <=> == === != =~ !~
+        &&
+        ||
+        .. ...
+        ? :
+        = %= { /= -= += |= &= >>= <<= *= &&= ||= **=
+        defined?
+        not
+        or and
+        if unless while until
+        begin/end </pre>
+</section>
+<section data-background="#000">
+  <pre class="white">Method  Operator
+Y       [ ] [ ]=
+Y       **
+Y       ! ~
+Y       * / %
+Y       + -
+Y       >> <<
+Y       &
+Y       ^ |
+Y       <= < > >=
+Y       <=> == === != =~ !~
+
+^-----------------------------.
+| We can only override those. |
+'-----------------------------' </pre>
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Can expose instance variables
+  </p>
+  <pre><code class="ruby">class Vector3D < Object
+  attr_accessor :x, :y, :z
+
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+
+  def +(other)
+    if other.is_a? Numeric
+      Vector.new(@x + other, @y, + other, @z + other)
+    end
+  end
+end </code></pre>
+</section>
+<section>
+  <h2>
+    Class
+  </h2>
+  <p>
+    Communicate with other classes only with methods
+  </p>
+  <pre><code class="ruby">class Vector3D < Object
+  attr_accessor :x, :y, :z
+
+  def initialize(x, y, z)
+    @x, @y, @z = x, y, z
+  end
+
+  def length
+    (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+  end
+
+  def +(other)
+    if other.is_a? Numeric
+      Vector.new(@x + other, @y, + other, @z + other)
+    else
+      Vextor.new(@x + other.x, @y + other.y, @z + other)
+    end
+  end
+end </code></pre>
+</section>
       </div>
     </div>
     <script src="js/head.min.js"></script>

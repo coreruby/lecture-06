@@ -98,3 +98,232 @@ section.center data-background="#000"
   blockquote.white With great power comes great responsibility.
   p.white Stefan Kanev
 
+section
+  h2 Class
+  p Opened by the keyword class
+  pre: code.ruby
+    '
+      class Vector3D
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+      end
+
+section
+  h2 Class
+  p Can define methods
+  pre: code.ruby
+    '
+      class Vector3D
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+      end
+
+section
+  h2 Class
+  p Can instruct objects to store instance variables
+  pre: code.ruby
+    '
+      class Vector3D
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+      end
+
+section
+  h2 Class
+  p Call #initialize during creation
+  pre: code.ruby
+    '
+      class Vector3D
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+      end
+
+section
+  h2 Class
+  p Inherit from Object by default
+  pre: code.ruby
+    '
+      class Vector3D
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+      end
+
+section
+  h2 Class
+  p Inherit from Object by default
+  pre: code.ruby
+    '
+      class Vector3D < Object
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+      end
+
+section.center data-background="#000"
+  p.white Everything in Ruby is an object
+
+section.center
+  pre: code.ruby
+    '
+      >> Object.is_a? Object
+      => true
+
+section.center
+  img.inline src="img/troll.png"
+
+section
+  h2 Class
+  p There is no multiple inheritance
+  pre: code.ruby
+    '
+      class Vector3D < Object
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+      end
+
+section
+  h2 Class
+  p Can override operators
+  pre: code.ruby
+    '
+      class Vector3D < Object
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+
+        def +(other)
+          if other.is_a? Numeric
+            Vector.new(@x + other, @y, + other, @z + other)
+          end
+        end
+      end
+
+section data-background="#000"
+  pre.white
+    '
+              Method  Operator
+              Y       [ ] [ ]=
+              Y       **
+              Y       ! ~
+              Y       * / %
+              Y       + -
+              Y       >> <<
+              Y       &
+              Y       ^ |
+              Y       <= < > >=
+              Y       <=> == === != =~ !~
+                      &&
+                      ||
+                      .. ...
+                      ? :
+                      = %= { /= -= += |= &= >>= <<= *= &&= ||= **=
+                      defined?
+                      not
+                      or and
+                      if unless while until
+                      begin/end
+
+section data-background="#000"
+  pre.white
+    '
+              Method  Operator
+              Y       [ ] [ ]=
+              Y       **
+              Y       ! ~
+              Y       * / %
+              Y       + -
+              Y       >> <<
+              Y       &
+              Y       ^ |
+              Y       <= < > >=
+              Y       <=> == === != =~ !~
+
+              ^-----------------------------.
+              | We can only override those. |
+              '-----------------------------'
+
+section
+  h2 Class
+  p Can expose instance variables
+  pre: code.ruby
+    '
+      class Vector3D < Object
+        attr_accessor :x, :y, :z
+
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+
+        def +(other)
+          if other.is_a? Numeric
+            Vector.new(@x + other, @y, + other, @z + other)
+          end
+        end
+      end
+
+section
+  h2 Class
+  p Communicate with other classes only with methods
+  pre: code.ruby
+    '
+      class Vector3D < Object
+        attr_accessor :x, :y, :z
+
+        def initialize(x, y, z)
+          @x, @y, @z = x, y, z
+        end
+
+        def length
+          (@x ** 2 + @y ** 2 + @z ** 2) ** 0.5
+        end
+
+        def +(other)
+          if other.is_a? Numeric
+            Vector.new(@x + other, @y, + other, @z + other)
+          else
+            Vextor.new(@x + other.x, @y + other.y, @z + other)
+          end
+        end
+      end
